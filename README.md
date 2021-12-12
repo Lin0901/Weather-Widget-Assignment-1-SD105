@@ -1,7 +1,6 @@
 # Weather-Widget-Assignment-1-SD105
 
-<H1>Weather Widget
 
 <h2>Description</h2>
 
-<h5>Weather Widget app is use to check current Weather as well as highest and lowest weather of next five days using OpenWeatherMap API
+<h5>Build and deploy a weather widget that uses the navigator geolocation API to determine the users location and uses that location to obtain the current weather and a 5 day forecast for their region.<h5>
