@@ -1,6 +1,7 @@
 let latitude;
 let longitude;
-const key = '87b5841fc97ba543d2ecde0159cee419';
+const key = '7549b0e653c49d3531c2d3a4141946ac';
+http://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${key}
 const day = {
     0: "Sunday",
     1: "Monday",
@@ -12,21 +13,21 @@ const day = {
 }
 
 navigator.geolocation.getCurrentPosition(position => {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-    getlocation(latitude, longitude)
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    getWeather(latitude, longitude)
 });
 
-function getlocation(lati, long) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&units=metric&appid=${key}`)
+function getWeather(lati, long) {
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${key}`)
         .then(resp => resp.json())
         .then(data => {
             currentWeather(data);
         })
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lati}&lon=${long}&units=metric&appid=${key}`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${key}`)
         .then(resp => resp.json())
         .then(data => {
-            weatherForcast(data.list);
+            (data.list);
 
         })
 }
@@ -43,7 +44,7 @@ function currentWeather(data) {
         </div>`
 }
 
-function weatherForcast(data) {
+function weatherForecast(data) {
     let date = new Date();
     let dates = {};
     let tempMax = {};
